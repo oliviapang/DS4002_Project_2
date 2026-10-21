@@ -23,4 +23,6 @@ Date | Data associated with each weekly observation | Date; text | FRED/EIA
 Gas Price | Average U.S. retail price of regular gasoline, including taxes | $/gallon; numerical | FRED (GASREGW)
 Crude Oil Price | Average crude oil spot price after converting daily values to weekly values | $/barrel; numerical | EIA (RWTCD)
 ### Exploratory Plots
+<img width="1387" height="590" alt="image" src="https://github.com/user-attachments/assets/4c22b843-9907-4bf5-b1f9-77e30aece3a8" />
+
 ### References
