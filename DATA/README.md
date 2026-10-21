@@ -25,4 +25,4 @@ Crude Oil Price | Average crude oil spot price after converting daily values to 
 ### Exploratory Plots
 <img width="1387" height="590" alt="image" src="https://github.com/user-attachments/assets/4c22b843-9907-4bf5-b1f9-77e30aece3a8" />
 
-### References
+<img width="788" height="590" alt="image" src="https://github.com/user-attachments/assets/e00d7a03-d066-4861-ac3f-aaba41ddb68b" />
