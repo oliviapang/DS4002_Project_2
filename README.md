@@ -15,4 +15,5 @@ Platform: Windows
 
 ## References
 [1] S. P. A. Brown and M. K. Yücel, “Gasoline and crude oil prices: Why the asymmetry?,” Econ. Financ. Rev., Federal Reserve Bank of Dallas, pp. 23–29, 3rd Quart. 2000. [Online]. Available: https://www.dallasfed.org/~/media/documents/research/efr/2000/efr0003b.pdf
+
 [2] R. J. Hyndman and G. Athanasopoulos, Forecasting: Principles and Practice, 3rd ed. Melbourne, Australia: OTexts, 2021. [Online]. Available: https://otexts.com/fpp3/
