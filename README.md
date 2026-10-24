@@ -5,8 +5,8 @@
 3. Instructions for Reproduction  
 
 ## Software and Platform
-Softwares used: Google Collab and Python 3.13.15    
-Add-ons: pandas 2.2.3, numpy 2.1.3, matplotlib.pyplot 3.10.0, seaborn 0.13.2, scikit-learn 1.6.1, joblib 1.6.0    
+Softwares used: Google Colab and Python 3.10.12
+Add-ons: pandas 2.2.2, numpy 1.26.4, matplotlib 3.7.1, seaborn 0.13.1, statsmodels 0.14.2, scikit-learn 1.5.2
 Platform: Windows
 
 ## Documentation Map
