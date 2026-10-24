@@ -20,43 +20,36 @@ graph TD
     %% Root
     Root["DS4002_Project_2<br/>Repository"]:::purple
 
-    %% Top-Level Level
-    Root --> Data["Data"]:::blue
-    Root --> Output["OUTPUT"]:::blue
-    Root --> Scripts["Scripts"]:::blue
-    Root --> License["LICENSE.md"]:::blue
-    Root --> Readme["README.md"]:::blue
+    %% Top-Level Direct Folders and Files
+    Root --> DATA["DATA"]:::blue
+    Root --> OUTPUT["OUTPUT"]:::blue
+    Root --> SCRIPTS["SCRIPTS"]:::blue
+    Root --> LICENSE["LICENSE.md"]:::blue
+    Root --> README["README.md"]:::blue
 
-    %% Data Column (Connected from Data, chained vertically with ~~~)
-    Data --> D1["raw_data/"]:::green
-    Data --> D2["cleaned_oil_gas_data.csv"]:::green
-    Data --> D3["README.md"]:::green
-    D1 ~~~ D2 ~~~ D3
+    %% DATA Column (Vertical stack)
+    DATA --> D1["GASREGW.csv"]:::green
+    D1 --> D2["README.md"]:::green
+    D2 --> D3["cleaned_differenced_data.csv"]:::green
+    D3 --> D4["monthly_oil_gas_prices.csv"]:::green
+    D4 --> D5["oil_data.xls"]:::green
 
-    %% OUTPUT Column (Stacked vertically)
-    Output --> O1["absolute_errors_boxplot.png"]:::green
-    Output --> O2["absolute_errors_over_time.png"]:::green
-    Output --> O3["bias_and_residuals_comparison.png"]:::green
-    Output --> O4["evaluation_metrics.csv"]:::green
-    Output --> O5["forecasts_comparison.csv"]:::green
-    Output --> O6["multi_horizon_comparison.csv"]:::green
-    Output --> O7["multi_horizon_forecasts.png"]:::green
-    Output --> O8["oil_gas_scatter.png"]:::green
-    Output --> O9["price_trends_timeseries.png"]:::green
-    Output --> O10["walk_forward_forecasts.png"]:::green
-    O1 ~~~ O2 ~~~ O3 ~~~ O4 ~~~ O5 ~~~ O6 ~~~ O7 ~~~ O8 ~~~ O9 ~~~ O10
+    %% OUTPUT Column (Vertical stack)
+    OUTPUT --> O1["absolute_errors_boxplot (1).png"]:::green
+    O1 --> O2["absolute_errors_over_time (1).png"]:::green
+    O2 --> O3["bias_and_residuals_comparison (1).png"]:::green
+    O3 --> O4["evaluation_metrics.csv"]:::green
+    O4 --> O5["forecasts_comparison.csv"]:::green
+    O5 --> O6["multi_horizon_comparison.csv"]:::green
+    O6 --> O7["multi_horizon_forecasts (1).png"]:::green
+    O7 --> O8["oil_gas_scatter.png"]:::green
+    O8 --> O9["price_trends_timeseries.png"]:::green
+    O9 --> O10["walk_forward_forecasts (2).png"]:::green
 
-    %% Scripts Column (Stacked vertically)
-    Scripts --> S1["1_Data_Cleaning_EDA.ipynb"]:::green
-    Scripts --> S2["2_Train_Forecast_Models.ipynb"]:::green
-    Scripts --> S3["3_Evaluate_and_Plot.ipynb"]:::green
-    Scripts --> ModelFolder["Models/"]:::blue
-    S1 ~~~ S2 ~~~ S3 ~~~ ModelFolder
-
-    %% Models Sub-column
-    ModelFolder --> M1["arima_model.joblib"]:::green
-    ModelFolder --> M2["scaler.joblib"]:::green
-    M1 ~~~ M2
+    %% SCRIPTS Column (Vertical stack)
+    SCRIPTS --> S1["1_Cleaning_and_EDA.ipynb"]:::green
+    S1 --> S2["2_Build_Model.ipynb"]:::green
+    S2 --> S3["3_Evaluating_Model.ipynb"]:::green
 ```
 ## Instructions for Reproduction
 1. Download gasoline price data from FRED and crude oil price data from EIA. Save both as CSV files in the DATA folder.
