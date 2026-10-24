@@ -10,7 +10,50 @@ Add-ons: pandas 2.2.3, numpy 2.1.3, matplotlib.pyplot 3.10.0, seaborn 0.13.2, sc
 Platform: Windows
 
 ## Documentation Map
+```mermaid
+graph TD
+    %% Styling Definitions
+    classDef purple fill:#DCD6F7,stroke:#4B3F72,stroke-width:1.5px,color:#000;
+    classDef blue fill:#D4EBF8,stroke:#1F4E79,stroke-width:1.5px,color:#000;
+    classDef green fill:#E2F0D9,stroke:#385723,stroke-width:1.5px,color:#000;
 
+    %% Root
+    Root["DS4002_Project_2<br/>Repository"]:::purple
+
+    %% Top-Level Folders & Files
+    Root --> Data["Data"]:::blue
+    Root --> Output["OUTPUT"]:::blue
+    Root --> Scripts["Scripts"]:::blue
+    Root --> License["LICENSE.md"]:::blue
+    Root --> Readme["README.md"]:::blue
+
+    %% Data Sub-items
+    Data --> D1["raw_data/"]:::green
+    Data --> D2["cleaned_oil_gas_data.csv"]:::green
+    Data --> D3["README.md"]:::green
+
+    %% OUTPUT Sub-items (from your repo)
+    Output --> O1["absolute_errors_boxplot.png"]:::green
+    Output --> O2["absolute_errors_over_time.png"]:::green
+    Output --> O3["bias_and_residuals_comparison.png"]:::green
+    Output --> O4["evaluation_metrics.csv"]:::green
+    Output --> O5["forecasts_comparison.csv"]:::green
+    Output --> O6["multi_horizon_comparison.csv"]:::green
+    Output --> O7["multi_horizon_forecasts.png"]:::green
+    Output --> O8["oil_gas_scatter.png"]:::green
+    Output --> O9["price_trends_timeseries.png"]:::green
+    Output --> O10["walk_forward_forecasts.png"]:::green
+
+    %% Scripts Sub-items
+    Scripts --> S1["1_Data_Cleaning_EDA.ipynb"]:::green
+    Scripts --> S2["2_Train_Forecast_Models.ipynb"]:::green
+    Scripts --> S3["3_Evaluate_and_Plot.ipynb"]:::green
+    Scripts --> ModelFolder["Models/"]:::blue
+
+    %% Models Sub-items
+    ModelFolder --> M1["arima_model.joblib"]:::green
+    ModelFolder --> M2["scaler.joblib"]:::green
+```
 ## Instructions for Reproduction
 1. Download gasoline price data from FRED and crude oil price data from EIA. Save both as CSV files in the DATA folder.
 Note: Steps 2–6 can be accomplished by running 1_Data_Cleaning_EDA.ipynb.
