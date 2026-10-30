@@ -17,7 +17,7 @@ as public-domain data and requests proper citation.
 ### Data Dictionary
 | Variable | Description | Units/Type | Source |
 |:---:|:---:|:---:|:---:|
-Date | Data associated with the beginning of each monthly observation | Date; text | FRED/EIA
+Date | Date associated with the beginning of each monthly observation | Date; text | FRED/EIA
 Gas Price | Monthly average U.S. retail price of regular gasoline, including taxes | $/gallon; numerical | FRED (GASREGW)
 Crude Oil Price | Monthly average crude oil price | $/barrel; numerical | EIA (RWTCD)
 Log Gas Price | Log of monthly average U.S. gas price | log($)/barrel; numerical | FRED (GASREGW)
