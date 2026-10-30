@@ -52,26 +52,21 @@ graph TD
     S2 --> S3["3_Evaluating_Model.ipynb"]:::green
 ```
 ## Instructions for Reproduction
-1. Download gasoline price data from FRED and crude oil price data from EIA. Save both as CSV files in the DATA folder.
-Note: Steps 2–6 can be accomplished by running 1_Data_Cleaning_EDA.ipynb.
-2. Import required libraries and load both datasets into pandas DataFrames.
-3. Clean missing values by removing empty observations and interpolating remaining missing values.
-4. Convert both datasets into monthly averages and merge them by date.
-5. Apply a log transformation to the price variables and shift crude oil prices back one month (t-1) to use as a predictor.
-6. Perform exploratory data analysis, including price trends and correlation. Export the cleaned dataset as cleaned_gas_oil_data.csv.
-*Note: Steps 7–13 can be accomplished by running 2_SARIMA_SARIMAX_Modeling.ipynb.
-7. Import the cleaned dataset and perform ADF and KPSS tests to check stationarity.
-8. Split the data chronologically into training (before 2020) and testing (2020 onward) datasets without shuffling.
-9. Build and fit a SARIMA model using historical gasoline prices only.
-10. Build and fit a SARIMAX model using historical gasoline prices and lagged crude oil prices as an additional variable.
-11. Generate forecasts for 1-month, 3-month, 6-month, and 12-month horizons.
-12. Perform walk-forward validation by repeatedly forecasting using updated historical data.
-13. Convert predictions back to dollars per gallon and export the forecast results.
-*Note: Steps 14–17 can be accomplished by running 3_Model_Evaluation.ipynb.
-14. Import actual gasoline prices and forecast results from both models.
-15. Calculate RMSE, MAE, and MAPE to compare forecasting accuracy.
-16. Perform a Diebold-Mariano test to determine whether the difference in forecast accuracy is statistically significant (p < 0.05).
-17. Plot actual vs. predicted gasoline prices and compare model performance. Determine whether SARIMAX improves forecasting accuracy based on lower RMSE and a statistically significant difference.
+1. Download gasoline price data from FRED (`GASREGW.csv`) and crude oil price data from EIA (`oil_data.xls`). Save both files in the DATA folder. *Note: Steps 2–5 can be accomplished by running `1_Cleaning_and_EDA.ipynb`.*
+2. Import the required libraries and load both datasets into pandas DataFrames.
+3. Clean the datasets by converting dates and prices into appropriate formats and removing observations with missing or invalid values.
+4. Convert both datasets into monthly averages, merge them by date, and apply logarithmic transformations to gasoline and crude oil prices.
+5. Perform exploratory data analysis, including price trends and correlation. Export the processed dataset as `monthly_oil_gas_prices.csv`. *Note: Steps 6–11 can be accomplished by running `2_Build_Model.ipynb`.*
+6. Import the processed dataset, shift logged crude oil prices back one month (t-1), and perform ADF and KPSS tests to check stationarity.
+7. Calculate first differences of logged prices and fit initial SARIMA and SARIMAX models to the differenced data.
+8. Split the logged price data chronologically into training (before 2020) and testing (2020 onward) datasets without shuffling.
+9. Build and fit SARIMA and SARIMAX forecasting models with order (1,1,1) and seasonal order (1,1,1,12). SARIMA uses historical gasoline prices, while SARIMAX includes lagged crude oil prices.
+10. Perform one-month-ahead walk-forward validation by repeatedly forecasting with updated historical observations without refitting. Include a naive forecast using the previous month's gasoline price.
+11. Convert predictions back to dollars per gallon and export `forecasts_comparison.csv`, `evaluation_metrics.csv`, and `oil_coefficient.csv` to OUTPUT. Export `cleaned_differenced_data.csv` to DATA. *Note: Steps 12–15 can be accomplished by running `3_Evaluating_Model.ipynb`.*
+12. Import actual gasoline prices and forecast results from the naive, SARIMA, and SARIMAX models.
+13. Calculate RMSE, MAE, and MAPE to compare forecasting accuracy across all three models.
+14. Examine the crude oil coefficient and its p-value from the initial SARIMAX model to assess statistical significance.
+15. Plot actual versus predicted gasoline prices and compare model performance using forecast errors, RMSE, and residual visualizations. Determine whether SARIMAX improves forecasting accuracy compared with SARIMA.
 
 ## References
 [1] Federal Reserve Bank of St. Louis, "U.S. Regular All Formulations Retail Gasoline Prices (GASREGW)," FRED. Available: https://fred.stlouisfed.org/series/GASREGW  
