@@ -12,44 +12,50 @@ Platform: Windows
 ## Documentation Map
 ```mermaid
 graph TD
-    %% Styling Definitions
-    classDef purple fill:#DCD6F7,stroke:#4B3F72,stroke-width:1.5px,color:#000;
-    classDef blue fill:#D4EBF8,stroke:#1F4E79,stroke-width:1.5px,color:#000;
-    classDef green fill:#E2F0D9,stroke:#385723,stroke-width:1.5px,color:#000;
+    %% Repository Root
+    Repo[Repository]
 
-    %% Root
-    Root["DS4002_Project_2<br/>Repository"]:::purple
+    %% Top Level Folders & Files
+    Repo --> DATA[DATA]
+    Repo --> OUTPUT[OUTPUT]
+    Repo --> SCRIPTS[SCRIPTS]
+    Repo --> LICENSE[LICENSE.md]
+    Repo --> README_ROOT[README.md]
 
-    %% Top-Level Direct Folders and Files
-    Root --> DATA["DATA"]:::blue
-    Root --> OUTPUT["OUTPUT"]:::blue
-    Root --> SCRIPTS["SCRIPTS"]:::blue
-    Root --> LICENSE["LICENSE.md"]:::blue
-    Root --> README["README.md"]:::blue
+    %% DATA Directory Chain
+    DATA --> D1[GASREGW.csv]
+    D1 --> D2[README.md]
+    D2 --> D3[cleaned_differenced_data.csv]
+    D3 --> D4[monthly_oil_gas_prices.csv]
+    D4 --> D5[oil_data.xls]
 
-    %% DATA Column (Vertical stack)
-    DATA --> D1["GASREGW.csv"]:::green
-    D1 --> D2["README.md"]:::green
-    D2 --> D3["cleaned_differenced_data.csv"]:::green
-    D3 --> D4["monthly_oil_gas_prices.csv"]:::green
-    D4 --> D5["oil_data.xls"]:::green
+    %% OUTPUT Directory Chain
+    OUTPUT --> O1[absolute_errors_boxplot.png]
+    O1 --> O2[absolute_errors_over_time.png]
+    O2 --> O3[bias_and_residuals_comparison.png]
+    O3 --> O4[cleaned_differenced_data.csv]
+    O4 --> O5[evaluation_metrics.csv]
+    O5 --> O6[forecasts_comparison.csv]
+    O6 --> O7[oil_coefficient.csv]
+    O7 --> O8[oil_gas_scatter.png]
+    O8 --> O9[price_trends_timeseries.png]
+    O9 --> O10[rmse_comparison.png]
+    O10 --> O11[script3_outputs.zip]
+    O11 --> O12[walk_forward_forecasts.png]
 
-    %% OUTPUT Column (Vertical stack)
-    OUTPUT --> O1["absolute_errors_boxplot (1).png"]:::green
-    O1 --> O2["absolute_errors_over_time (1).png"]:::green
-    O2 --> O3["bias_and_residuals_comparison (1).png"]:::green
-    O3 --> O4["evaluation_metrics.csv"]:::green
-    O4 --> O5["forecasts_comparison.csv"]:::green
-    O5 --> O6["multi_horizon_comparison.csv"]:::green
-    O6 --> O7["multi_horizon_forecasts (1).png"]:::green
-    O7 --> O8["oil_gas_scatter.png"]:::green
-    O8 --> O9["price_trends_timeseries.png"]:::green
-    O9 --> O10["walk_forward_forecasts (2).png"]:::green
+    %% SCRIPTS Directory Chain
+    SCRIPTS --> S1[1_Cleaning_and_EDA.ipynb]
+    S1 --> S2[2_Build_Model.ipynb]
+    S2 --> S3[3_Evaluating_Model.ipynb]
 
-    %% SCRIPTS Column (Vertical stack)
-    SCRIPTS --> S1["1_Cleaning_and_EDA.ipynb"]:::green
-    S1 --> S2["2_Build_Model.ipynb"]:::green
-    S2 --> S3["3_Evaluating_Model.ipynb"]:::green
+    %% Color Styling to Match Reference
+    classDef purple fill:#E1D5E7,stroke:#9673A6,stroke-width:1.5px,color:#000;
+    classDef blue fill:#DAE8FC,stroke:#6C8EBF,stroke-width:1.5px,color:#000;
+    classDef green fill:#D5E8D4,stroke:#82B366,stroke-width:1.5px,color:#000;
+
+    class Repo purple;
+    class DATA,OUTPUT,SCRIPTS,LICENSE,README_ROOT blue;
+    class D1,D2,D3,D4,D5,O1,O2,O3,O4,O5,O6,O7,O8,O9,O10,O11,O12,S1,S2,S3 green;
 ```
 ## Instructions for Reproduction
 1. Download gasoline price data from FRED (`GASREGW.csv`) and crude oil price data from EIA (`oil_data.xls`). Save both files in the DATA folder. *Note: Steps 2–5 can be accomplished by running `1_Cleaning_and_EDA.ipynb` in Google Colab.*
